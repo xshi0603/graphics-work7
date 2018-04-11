@@ -1,5 +1,19 @@
 import math
 
+def make_vector(a,b):
+    matrix = []
+    matrix.append(b[0]-a[0])
+    matrix.append(b[1]-a[1])
+    matrix.append(b[2]-a[2])
+    return matrix
+
+def cross_product(vec1,vec2):
+    matrix = []
+    matrix.append(vec1[1]*vec2[2]-vec1[2]*vec2[1])
+    matrix.append(vec1[2]*vec2[0]-vec1[0]*vec2[2])
+    matrix.append(vec1[0]*vec2[1]-vec1[1]*vec2[0])
+    return matrix
+
 def make_bezier():
     return [
         [-1, 3, -3, 1],
@@ -15,6 +29,7 @@ def make_hermite():
         [1, -2, 1, 0],
         [1, -1, 0, 0]
     ]
+
 
 def generate_curve_coefs( p0, p1, p2, p3, t ):
     coefs = [[p0, p1, p2, p3]]
@@ -112,3 +127,5 @@ def new_matrix(rows = 4, cols = 4):
         for r in range( rows ):
             m[c].append( 0 )
     return m
+
+
